@@ -1,0 +1,57 @@
+{
+  "kind": "collectionType",
+  "collectionName": "teams",
+  "info": {
+    "singularName": "team",
+    "pluralName": "teams",
+    "displayName": "Team",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "teamName": {
+      "type": "string"
+    },
+    "sport": {
+      "type": "string"
+    },
+    "coachid": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::coach.coach",
+      "inversedBy": "teams"
+    },
+    "players": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::player.player",
+      "mappedBy": "teams"
+    },
+    "playerRequests": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::player.player",
+      "mappedBy": "RequestedTeam"
+    },
+    "rejectedPlayerRequests": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::player.player",
+      "inversedBy": "rejectedTeams"
+    },
+    "matchesAsTeam2": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::match.match",
+      "mappedBy": "team_2"
+    },
+    "matchesAsTeam1": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::match.match",
+      "mappedBy": "team_1"
+    }
+  }
+}

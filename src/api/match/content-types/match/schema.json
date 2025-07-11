@@ -1,0 +1,54 @@
+{
+  "kind": "collectionType",
+  "collectionName": "matches",
+  "info": {
+    "singularName": "match",
+    "pluralName": "matches",
+    "displayName": "Match",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "matchtime": {
+      "type": "datetime"
+    },
+    "event": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::event.event",
+      "inversedBy": "matches"
+    },
+    "team_2": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::team.team",
+      "inversedBy": "matchesAsTeam2"
+    },
+    "game": {
+      "type": "string"
+    },
+    "winner": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::team.team"
+    },
+    "team1_Score": {
+      "type": "integer"
+    },
+    "team2_Score": {
+      "type": "integer"
+    },
+    "team_1": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::team.team",
+      "inversedBy": "matchesAsTeam1"
+    },
+    "venue": {
+  "type": "string"
+}
+
+  }
+}

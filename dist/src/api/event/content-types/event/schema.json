@@ -1,0 +1,39 @@
+{
+    "kind": "collectionType",
+    "collectionName": "events",
+    "info": {
+        "singularName": "event",
+        "pluralName": "events",
+        "displayName": "Event",
+        "description": ""
+    },
+    "options": {
+        "draftAndPublish": false
+    },
+    "attributes": {
+        "eventName": {
+            "type": "string"
+        },
+        "startDate": {
+            "type": "date"
+        },
+        "endDate": {
+            "type": "date"
+        },
+        "matches": {
+            "type": "relation",
+            "relation": "oneToMany",
+            "target": "api::match.match",
+            "mappedBy": "event"
+        },
+        "organizer": {
+            "type": "relation",
+            "relation": "manyToOne",
+            "target": "api::organizer.organizer",
+            "inversedBy": "events"
+        },
+        "venues": {
+            "type": "json"
+        }
+    }
+}

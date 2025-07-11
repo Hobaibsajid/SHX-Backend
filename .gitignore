@@ -1,0 +1,23 @@
+# Node modules
+node_modules/
+
+# Build and cache
+.build/
+.cache/
+
+# Environment variables
+.env
+.env.*  # in case you use .env.production, etc.
+
+# Database (if using SQLite for dev)
+*.sqlite
+*.db
+
+# Strapi logs and generated files
+*.log
+strapi-updater.json
+
+# OS/Editor
+.DS_Store
+Thumbs.db
+.vscode/
